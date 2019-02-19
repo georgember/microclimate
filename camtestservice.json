@@ -1,0 +1,33 @@
+{
+  "apiVersion": "v1",
+  "kind": "Service",
+  "metadata": {
+    "name": "md-olsix-ibm-open-libert",
+    "namespace": "default",
+    "resourceVersion": "16641576",
+    "labels": {
+      "app": "md-olsix-ibm-open-libert",
+      "chart": "ibm-open-liberty-1.6.0",
+      "heritage": "Tiller",
+      "release": "md-olsix"
+    }
+  },
+  "spec": {
+    "ports": [
+      {
+        "name": "http-liberty-https",
+        "protocol": "TCP",
+        "port": 9443,
+        "targetPort": 9443,
+        "nodePort": 31146
+      }
+    ],
+    "selector": {
+      "app": "md-olsix-ibm-open-libert"
+    },
+    "clusterIP": "10.2.248.214",
+    "type": "NodePort",
+    "sessionAffinity": "None",
+    "externalTrafficPolicy": "Cluster"
+  }
+}
